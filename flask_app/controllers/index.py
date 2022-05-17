@@ -13,3 +13,8 @@ import uuid as uuid
 def display_project():
 
     return render_template('index.html', images=Image.get_all_images())
+
+@app.route('/music',methods=["POST","GET"])
+def display_music():
+
+    return render_template('music.html', images=Image.get_all_images())
