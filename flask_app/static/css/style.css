@@ -76,6 +76,9 @@
   }
 }
 
+#css-drop-shadow{
+  filter: drop-shadow(0.35rem 0.35rem 0.8rem rgba(53, 246, 252, 0.961));
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -87,6 +90,9 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-image: url("backgrounds.jpg");
+  background-size: cover;
+
 }
 
 hr {
