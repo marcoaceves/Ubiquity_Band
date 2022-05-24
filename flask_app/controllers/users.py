@@ -9,12 +9,12 @@ import uuid as uuid
 
 
 
-@app.route('/',methods=["POST","GET"])
-def display_project():
+@app.route('/login',methods=["POST","GET"])
+def login():
 
-    return render_template('index.html', images=Image.get_all_images())
+    return render_template('login.html', images=Image.get_all_images())
 
-@app.route('/music',methods=["POST","GET"])
-def display_music():
+@app.route('/register',methods=["POST","GET"])
+def register():
 
-    return render_template('music.html', images=Image.get_all_images())
+    return render_template('register.html', images=Image.get_all_images())

@@ -8,7 +8,7 @@ from flask import flash
 import smtplib
 
 
-db = 'project_manager_db'
+db = 'ubiquity_db'
 
 class Image:
     def __init__(self, data):

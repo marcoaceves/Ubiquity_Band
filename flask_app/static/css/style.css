@@ -77,7 +77,7 @@
 }
 
 #css-drop-shadow{
-  filter: drop-shadow(0.35rem 0.35rem 0.8rem rgba(53, 246, 252, 0.961));
+  filter: drop-shadow(0.35rem 0.35rem 0.8rem rgba(31, 115, 199, 0.961));
 }
 body {
   margin: 0;
