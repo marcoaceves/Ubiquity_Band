@@ -309,7 +309,7 @@ iframe {
   height: 100%;
   padding-left: 35px;
   pointer-events: none;
-  color: white;
+  color: rgb(0, 0, 0);
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;

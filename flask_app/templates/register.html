@@ -64,33 +64,36 @@
             <div class="limiter">
                 <div class="container-login100Registration">
                     <div class="wrap-login100">
-        
-                        <form class="registration100-form validate-form">
+
+                        <form  autocomplete="off" class="registration100-form validate-form" action="register/query" method="POST">
                             <img class="login100-form-logo" src="static/img/logo.avif" alt="IMG">
                             <span class="login100-form-title">
+                                {% with messages = get_flashed_messages(category_filter = ['register']) %}
+                                {% if messages%}
+                                    {% for message in messages %}
+                                    <p ><strong> <u class="text-white">{{message}}</u></strong></p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                                 Member Registration
                             </span>
         
                             <div class="row register-form">
                                 <div class="col-md-12 ">
                                     <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="First Name *" value="" />
+                                        <input autocomplete="off" type="text" class="form-control registration" placeholder="User Name *"  name="user_name" />
                                         <span class="focus-registration"></span>
                                     </div>
                                     <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Last Name *" value="" />
+                                        <input type="text" class="form-control registration" placeholder="Email *"  name="email" />
                                         <span class="focus-registration"></span>
                                     </div>
                                     <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Email *" value="" />
-                                        <span class="focus-registration"></span>
+                                        <input autocomplete="off" type="password" class="form-control registration" placeholder="Password *" name="password" />
+                                        <span class="focus-registration" ></span>
                                     </div>
                                     <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Password *" value="" />
-                                        <span class="focus-registration"></span>
-                                    </div>
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Confirm Password *" value="" />
+                                        <input type="password" class="form-control registration" placeholder="Confirm Password *" name="confirm_password" />
                                         <span class="focus-registration"></span>
                                     </div>
 
