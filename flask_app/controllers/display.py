@@ -20,8 +20,3 @@ def display_music():
 
     return render_template('music.html', images=Image.get_all_images())
 
-@app.route('/band')
-def display_band():
-
-
-    return render_template('band.html', images=Image.get_all_images())
