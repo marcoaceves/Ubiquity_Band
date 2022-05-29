@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, session, url_for, render_template
 import os
 from werkzeug.utils import secure_filename
 import urllib.request
@@ -13,7 +13,9 @@ bcrypt = Bcrypt(app)
 
 
 @app.route('/login')
-def login():
+def login_html():
+    if 'user_id' in session:
+        return redirect('/dashboard')
 
     return render_template('login.html')
 
@@ -36,3 +38,30 @@ def query_registration():
     }
     User.create_user(data)
     return redirect('/login')
+
+
+@app.route('/login/query', methods=['POST'])
+def login():
+    data={'email' : request.form['email']}
+    user_in_db = User.get_by_email(data)
+    if not user_in_db:
+        flash('Invalid Email or Password!', 'login')
+    if not bcrypt.check_password_hash(user_in_db.password, request.form['password']):
+        flash('Invalid Email or Password!', 'login')
+        return redirect('/login')
+    session['user_id']  = user_in_db.id
+
+    return redirect ('/dashboard')
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect('/login')
+    data={'id':session["user_id"]}
+    user=User.get_user(data)
+    return render_template('dashboard.html', user=user)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')

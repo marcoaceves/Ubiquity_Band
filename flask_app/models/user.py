@@ -21,8 +21,28 @@ class User:
 
     @classmethod
     def create_user(cls, data):
-        query = 'INSERT INTO users (user_name, email, password) VALUES (%(user_name)s, %(email)s, %(password)s)'
+        query = 'INSERT INTO users (user_name, email, password) VALUES (%(user_name)s, %(email)s, %(password)s;)'
         return connectToMySQL(db).query_db(query, data)
+
+    @classmethod
+    def get_by_email(cls, data):
+        query ="SELECT * FROM users WHERE email = %(email)s;"
+        result = connectToMySQL(db).query_db(query, data)
+        if len(result)< 1 :
+            return False
+        print(result)
+        return cls(result[0])
+    @classmethod
+    def get_user(cls, data):
+        query = "SELECT user_name, email, created_at, updated_at, id FROM users WHERE id = %(id)s"
+        result = connectToMySQL(db).query_db(query, data)
+        print(result)
+        result[0]['password'] = ''
+        return cls(result[0])
+
+
+
+
 
     @staticmethod
     def validate_user( user ):

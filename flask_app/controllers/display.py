@@ -10,17 +10,17 @@ from flask_app.models.user import User
 
 
 
-@app.route('/',methods=["POST","GET"])
+@app.route('/')
 def display_project():
 
     return render_template('index.html', images=Image.get_all_images())
 
-@app.route('/music',methods=["POST","GET"])
+@app.route('/music')
 def display_music():
 
     return render_template('music.html', images=Image.get_all_images())
 
-@app.route('/band',methods=["POST","GET"])
+@app.route('/band')
 def display_band():
 
 

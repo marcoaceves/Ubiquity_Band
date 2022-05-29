@@ -1,4 +1,4 @@
-from flask_app.controllers import display, images, users
+from flask_app.controllers import display, images, users, band_members 
 from flask_app import app
 
 if __name__ == "__main__":
