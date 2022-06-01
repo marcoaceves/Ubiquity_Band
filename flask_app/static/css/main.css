@@ -557,3 +557,19 @@ iframe {
     opacity: 1;
   }
 }
+
+
+
+.band-member-container{
+  width: 500px;
+  padding: 1rem;
+  background-color: #000000;
+  margin: 3rem;
+
+}
+.band-member{
+  
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}

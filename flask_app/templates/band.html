@@ -12,6 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -62,8 +63,12 @@
                         <section class="py-5  bg-transparent">
                             <div class="">
                                 <div class="text-center bg-transparent">
-                                    <img src='static/uploads/{{member.image}}' width="500px" height="">
+                                    <div class="band-member-container">
+                                        <img src='static/uploads/{{member.image}}' class="band-member">
+                                    </div>
                                     <h1 class="text-white">{{member.first_name}}</h1>
+                                    <h1 class="text-white">{{member.bio}}</h1>
+                                    <h1 class="text-white">{{member.role}}</h1>
                                 </div>
                             </div>
                         </section>
@@ -85,22 +90,7 @@
 
                                 </div>
                             </div>
-                        </section>
-            <!-- About section one
-            <section class="py-5 bg-light" id="scroll-target">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-                        <div class="col-lg-6">
-                            <h2 class="fw-bolder">Our founding</h2>
-                            <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-        </main> -->
-        <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
