@@ -44,6 +44,7 @@ class User:
 
 
 
+
     @staticmethod
     def validate_user( user ):
         is_valid = True

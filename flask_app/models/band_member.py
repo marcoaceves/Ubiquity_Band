@@ -27,6 +27,11 @@ class Member:
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM members WHERE id = %(id)s"
+        return connectToMySQL(db).query_db(query, data)
+
+    @classmethod
     def get_all_band_members(cls):
         query = "SELECT * FROM members;"
         results = connectToMySQL(db).query_db(query)

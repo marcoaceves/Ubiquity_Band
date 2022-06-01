@@ -10,10 +10,9 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" type="text/css" href=" {{url_for('static', filename='css/main.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -39,70 +38,79 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ubiquity</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="/register">Register</a></li>
+                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
                                     <li><a class="dropdown-item" href="/login">Admin Login</a></li>
-                                    <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            Header
+            <!-- Header-->
             <header class="py-3 bg-transparent">
                 <div class="container px-5 bg-transparent">
                     <div class="row justify-content-center bg-transparent">
                         <div class="col-lg-8 col-xxl-6 bg-transparent">
                             <div class="text-center bg-transparent">
-                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="{{url_for('static', filename='img/logo.avif')}}" alt="..." />
+                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src='/static/img/logo.avif' />
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-            <main class="py-3 bg-transparent mb-5">
-                <div class="container px-5 bg-transparent">
-                    <div class="row justify-content-center bg-transparent">
-                        <div class="col-lg-8 col-xxl-6 bg-transparent">
-                            <div class="text-center bg-transparent">
-                                <h1 class="text-white">Welcome {{user.user_name}},</h1>
-                                <a class="btn btn-primary m-5" href="/add/member">Add New Band Member</a>
-                                <a class="btn btn-danger m-5" href="/edit/band">Edit a Band Member</a>
-                                <a class="btn btn-primary m-5" href="/music">Delete a Band Member</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
-
+                        <!-- About section-->
+                        {% for member in members %}
+                        <section class="py-5  bg-transparent">
+                            <div class="">
+                                <div class="text-center bg-transparent">
+                                    <div class="band-member-container">
+                                        <img  src="{{ url_for('static', filename = 'uploads/'+member.image) }}"class="band-member">
+                                    </div>
+                                    <h1 class="text-white">{{member.first_name}}</h1>
+                                    <h1 class="text-white">{{member.bio}}</h1>
+                                    <h1 class="text-white">{{member.role}}</h1>
+                                    <a class="btn btn-danger" href="/delete/member/{{member.id}}" >Delete Member</a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+                        </section>
+                        {% endfor %}
+                        <!-- About section-->
+                        <section class="py-5  bg-transparent">
+                            <div class="">
+                                <div class="text-center bg-transparent">
+                                    <h3 class="text-white">Ubiquity</h3>
+                                    <iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=719873130/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=true/" seamless><a href="https://ubiquityband1.bandcamp.com/album/ubiquity">Ubiquity by Ubiquity</a></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Team members section-->
+                        <section class="py-5  bg-transparent">
+                            <div class="container px-5 my-5">
+                                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-ac8d6511-1751-466b-a169-370af0fa0b41"></div>
 
-            <!-- Footer-->
-            <footer class="bg-dark py-4 mt-auto">
-                <div class="container px-5">
-                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                        <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
-                        <div class="col-auto">
-                            <a class="link-light small" href="#!">Privacy</a>
-                            <span class="text-white mx-1">&middot;</span>
-                            <a class="link-light small" href="#!">Terms</a>
-                            <span class="text-white mx-1">&middot;</span>
-                            <a class="link-light small" href="#!">Contact</a>
-                        </div>
+                                </div>
+                            </div>
+
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        
     </body>
 </html>
-
-
-
-
-
-
-

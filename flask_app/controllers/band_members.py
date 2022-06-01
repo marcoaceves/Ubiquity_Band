@@ -66,3 +66,21 @@ def query_band_member():
     print("hello")
     Member.add_member(data)
     return redirect(request.referrer)
+
+
+@app.route('/edit/band')
+def edit_band():
+    members= Member.get_all_band_members()
+    print(members[0].image)
+
+    return render_template('edit_band_member.html', members=members)
+
+@app.route('/delete/member/<id>')
+def delete_member(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'id': id
+    }
+    Member.delete(data)
+    return redirect(request.referrer)
