@@ -47,3 +47,8 @@ class Member:
         results = connectToMySQL(db).query_db(query, data)
         print(results)
         return cls(results[0])
+
+    @classmethod
+    def update_member(cls,data):
+        query = "UPDATE members SET first_name=%(first_name)s, last_name=%(last_name)s, image=%(image)s, role=%(role)s, bio=%(bio)s, link=%(link)s WHERE id =%(id)s "
+        return connectToMySQL(db).query_db(query,data)

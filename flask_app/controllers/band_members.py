@@ -14,7 +14,7 @@ bcrypt = Bcrypt(app)
 
 
 # image proccessing
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'avif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -69,6 +69,60 @@ def query_band_member():
     return redirect(request.referrer)
 
 
+@app.route('/edit_member/query', methods=['POST'])
+def query_edit_member():
+    files = request.files.getlist('files[]')
+    for file in files:
+        file=secure_filename(file.filename)
+        print(file, '$$$$$$$$$$$')
+
+        if len(file)<1:
+            print("Files are Empty")
+            data = {
+            'id': request.form['id']
+            }
+            img = Member.get_one_band_member(data)
+            pic_name = img.image
+            print(pic_name, "^^^^^")
+            data={
+            'id' : request.form['id'],
+            'first_name' : request.form['first_name'],
+            'last_name' : request.form['last_name'],
+            'role' : request.form['role'],
+            'bio' : request.form['bio'],
+            'link' : request.form['link'],
+            'image' : pic_name,
+            }
+            Member.update_member(data)
+            return redirect(request.referrer)
+        else:
+            data = {
+            'id': request.form['id']
+            }
+            img = Member.get_one_band_member(data)
+            image = img.image
+            os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], image))
+            files = request.files.getlist('files[]')
+            pic_name=''
+            for file in files:
+                if file and allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    pic_name = str(uuid.uuid1()) + "_" + filename
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+            print(pic_name,'pic_name')
+            data={
+                'first_name' : request.form['first_name'],
+                'id' : request.form['id'],
+                'last_name' : request.form['last_name'],
+                'role' : request.form['role'],
+                'bio' : request.form['bio'],
+                'link' : request.form['link'],
+                'image' : pic_name,
+            }
+            Member.update_member(data)
+            return redirect(request.referrer)
+
+
 @app.route('/edit/band')
 def edit_band():
     members= Member.get_all_band_members()
@@ -91,3 +145,5 @@ def delete_member(id):
 
     Member.delete(data)
     return redirect(request.referrer)
+
+

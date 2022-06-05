@@ -60,7 +60,7 @@
             </header>
                         <!-- About section-->
                         {% for member in members %}
-                        <form action="#">
+                        <form action="/edit_member/query" method="POST" enctype="multipart/form-data">
                             <section class="bg-dark py-5 mb-5">
                                 <div class="container px-5">
                                     <div class="row gx-5 align-items-center justify-content-center">
@@ -68,14 +68,15 @@
                                             <div class="my-5 text-center text-xl-start ">
                                                 <h1 class="display-5 fw-bolder text-white mb-2 bg-dark">Edit Band Member</h1>
                                                 <div class=" lead fw-normal text-white-50 mb-4 ">
+                                                    <input type="hidden" name="id" value="{{member.id}}">
                                                     <label for="first_name">Fist Name:</label>
                                                     <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{member.first_name}}"  name="first_name" />
 
-                                                    <label for="first_name">Last Name:</label>
-                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{ member.last_name}}"  name="first_name" />
+                                                    <label for="last_name">Last Name:</label>
+                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{ member.last_name}}"  name="last_name" />
 
-                                                    <label for="first_name">Role:</label>
-                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{member.role}}"  name="first_name" />
+                                                    <label for="role">Role:</label>
+                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{member.role}}"  name="role" />
                                                 </div>
                                                 <!-- <p class="lead fw-normal text-white-50 mb-4">{{member.bio}}</p> -->
                                                 <div class="lead fw-normal text-white-50 mb-4">
@@ -83,8 +84,8 @@
                                                     <textarea type="text" id="exampleFormControlTextarea1" class=" form-control registrationtextarea text-white mb-2 bg-dark" rows="7"  name="bio">{{member.bio}}</textarea>
                                                     <span class="focus-registrationtextarea"></span>
 
-                                                    <label for="first_name">Social Media Link:</label>
-                                                    <textarea autocomplete="off" type="text" class=" form-control registrationtextarea text-white mb-2 bg-dark" value="{{member.link}}"  name="first_name" >{{member.link}}</textarea>
+                                                    <label for="link">Social Media Link:</label>
+                                                    <textarea autocomplete="off" type="text" class=" form-control registrationtextarea text-white mb-2 bg-dark"   name="link" >{{member.link}}</textarea>
                                                 </div>
                                                 
                                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
