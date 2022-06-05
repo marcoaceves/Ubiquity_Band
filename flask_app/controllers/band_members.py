@@ -61,6 +61,7 @@ def query_band_member():
         'last_name' : request.form['last_name'],
         'role' : request.form['role'],
         'bio' : request.form['bio'],
+        'link' : request.form['link'],
         'image' : pic_name,
     }
     print("hello")
@@ -82,5 +83,11 @@ def delete_member(id):
     data = {
         'id': id
     }
+    img = Member.get_one_band_member(data)
+    image = img.image
+    print(image)
+
+    os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], image))
+
     Member.delete(data)
     return redirect(request.referrer)

@@ -60,16 +60,21 @@
             </header>
                         <!-- About section-->
                         {% for member in members %}
-                        <section class="py-5  bg-transparent">
-                            <div class="">
-                                <div class="text-center bg-transparent">
-                                    <div class="band-member-container">
-                                        <img  src="{{ url_for('static', filename = 'uploads/'+member.image) }}"class="band-member">
+
+                        <section class="bg-dark py-5 mb-5">
+                            <div class="container px-5">
+                                <div class="row gx-5 align-items-center justify-content-center">
+                                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                                        <div class="my-5 text-center text-xl-start">
+                                            <h1 class="display-5 fw-bolder text-white mb-2">{{member.first_name}} {{ member.last_name}} {{member.role}} </h1>
+                                            <p class="lead fw-normal text-white-50 mb-4">{{member.bio}}</p>
+                                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{member.role}}" target="_blank">Instagram</a>
+                                                <a class="btn btn-danger btn-lg px-4 me-sm-3" href="/delete/member/{{member.id}}" >Delete Member</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h1 class="text-white">{{member.first_name}}</h1>
-                                    <h1 class="text-white">{{member.bio}}</h1>
-                                    <h1 class="text-white">{{member.role}}</h1>
-                                    <a class="btn btn-danger" href="/delete/member/{{member.id}}" >Delete Member</a>
+                                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img src="{{ url_for('static', filename = 'uploads/'+member.image) }}" class="band-member"></div>
                                 </div>
                             </div>
                         </section>

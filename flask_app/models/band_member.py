@@ -18,12 +18,13 @@ class Member:
         self.image = data['image']
         self.role = data['role']
         self.bio = data['bio']
+        self.link = data['link']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
     @classmethod
     def add_member(cls, data):
-        query = "INSERT INTO members (first_name, last_name, image, role, bio) VALUES (%(first_name)s, %(last_name)s, %(image)s, %(role)s, %(bio)s); "
+        query = "INSERT INTO members (first_name, last_name, image, role, bio, link) VALUES (%(first_name)s, %(last_name)s, %(image)s, %(role)s, %(bio)s, %(link)s); "
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
@@ -40,3 +41,9 @@ class Member:
             members.append( cls(i) )
         print(members)
         return members
+    @classmethod
+    def get_one_band_member(cls, data):
+        query = "SELECT * FROM members WHERE id = %(id)s;"
+        results = connectToMySQL(db).query_db(query, data)
+        print(results)
+        return cls(results[0])
