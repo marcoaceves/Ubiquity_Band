@@ -60,34 +60,51 @@
             </header>
                         <!-- About section-->
                         {% for member in members %}
+                        <form action="#">
+                            <section class="bg-dark py-5 mb-5">
+                                <div class="container px-5">
+                                    <div class="row gx-5 align-items-center justify-content-center">
+                                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                                            <div class="my-5 text-center text-xl-start ">
+                                                <h1 class="display-5 fw-bolder text-white mb-2 bg-dark">Edit Band Member</h1>
+                                                <div class=" lead fw-normal text-white-50 mb-4 ">
+                                                    <label for="first_name">Fist Name:</label>
+                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{member.first_name}}"  name="first_name" />
 
-                        <section class="bg-dark py-5 mb-5">
-                            <div class="container px-5">
-                                <div class="row gx-5 align-items-center justify-content-center">
-                                    <div class="col-lg-8 col-xl-7 col-xxl-6">
-                                        <div class="my-5 text-center text-xl-start">
-                                            <h1 class="display-5 fw-bolder text-white mb-2">{{member.first_name}} {{ member.last_name}} {{member.role}} </h1>
-                                            <p class="lead fw-normal text-white-50 mb-4">{{member.bio}}</p>
-                                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{member.role}}" target="_blank">Instagram</a>
-                                                <a class="btn btn-danger btn-lg px-4 me-sm-3" href="/delete/member/{{member.id}}" >Delete Member</a>
+                                                    <label for="first_name">Last Name:</label>
+                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{ member.last_name}}"  name="first_name" />
+
+                                                    <label for="first_name">Role:</label>
+                                                    <input autocomplete="off" type="text" class="display-5 fw-bold text-white mb-2 bg-dark" value="{{member.role}}"  name="first_name" />
+                                                </div>
+                                                <!-- <p class="lead fw-normal text-white-50 mb-4">{{member.bio}}</p> -->
+                                                <div class="lead fw-normal text-white-50 mb-4">
+                                                    <label for="bio">Bio:</label>
+                                                    <textarea type="text" id="exampleFormControlTextarea1" class=" form-control registrationtextarea text-white mb-2 bg-dark" rows="7"  name="bio">{{member.bio}}</textarea>
+                                                    <span class="focus-registrationtextarea"></span>
+
+                                                    <label for="first_name">Social Media Link:</label>
+                                                    <textarea autocomplete="off" type="text" class=" form-control registrationtextarea text-white mb-2 bg-dark" value="{{member.link}}"  name="first_name" >{{member.link}}</textarea>
+                                                </div>
+                                                
+                                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                    <input class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" value="Update" >Update</input>
+                                                    <a class="btn btn-danger btn-lg px-4 me-sm-3" href="/delete/member/{{member.id}}" >Delete Member</a>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                                            <img src="{{ url_for('static', filename = 'uploads/'+member.image) }}" class="band-member mb-4">
+                                            <div class="form-group form-group mb-3 wrap-input100 validate-input">
+                                                <label class="lead fw-normal text-white-50 mb-4"><strong>Band Member Image :</strong></label>
+                                                <input type="file" name="files[]" id="fileInput" class="form-control" multiple >
+                                            </div></div>
                                     </div>
-                                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img src="{{ url_for('static', filename = 'uploads/'+member.image) }}" class="band-member"></div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </form>
+                        
                         {% endfor %}
-                        <!-- About section-->
-                        <section class="py-5  bg-transparent">
-                            <div class="">
-                                <div class="text-center bg-transparent">
-                                    <h3 class="text-white">Ubiquity</h3>
-                                    <iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=719873130/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=true/" seamless><a href="https://ubiquityband1.bandcamp.com/album/ubiquity">Ubiquity by Ubiquity</a></iframe>
-                                </div>
-                            </div>
-                        </section>
                         <!-- Team members section-->
                         <section class="py-5  bg-transparent">
                             <div class="container px-5 my-5">
@@ -96,6 +113,7 @@
 
                                 </div>
                             </div>
+                        </section>
 
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
