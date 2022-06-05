@@ -573,3 +573,5 @@ iframe {
   height: 500px;
   object-fit: contain;
 }
+
+input,textarea{width:100%;display:block}
