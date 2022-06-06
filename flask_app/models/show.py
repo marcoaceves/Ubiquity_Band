@@ -20,7 +20,7 @@ class Show:
         return connectToMySQL(db).query_db(query, data)
     @classmethod
     def get_all_shows(cls):
-        query = "SELECT * FROM shows;"
+        query = "SELECT * FROM shows ORDER BY show_date DESC;"
         results = connectToMySQL(db).query_db(query)
         # if results == False:
         #     no_shows =[{"title":"There is no shows!"}] 
@@ -31,3 +31,20 @@ class Show:
             shows.append( cls(i) )
         print(shows)
         return shows
+
+    @classmethod
+    def delete_show(cls, data):
+        query = "DELETE FROM shows WHERE id = %(id)s"
+        return connectToMySQL(db).query_db(query, data)
+
+    @classmethod
+    def get_one_show(cls, data):
+        query = "SELECT * FROM shows WHERE id = %(id)s;"
+        results = connectToMySQL(db).query_db(query, data)
+        print(results)
+        return cls(results[0])
+
+    @classmethod
+    def update_show(cls,data):
+        query = "UPDATE shows SET title=%(title)s, show_date=%(show_date)s, image=%(image)s, link=%(link)s WHERE id =%(id)s "
+        return connectToMySQL(db).query_db(query,data)
