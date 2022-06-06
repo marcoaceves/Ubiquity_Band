@@ -27,7 +27,7 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/band">Band</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Store</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
                             <li class="nav-item"><a class="nav-link" href="/music">Music</a></li>
                             <li class="nav-item"><a class="nav-link" href="faq.html">Contact</a></li>
                             <li class="nav-item dropdown">
@@ -67,7 +67,7 @@
                                     <div class="col-xl-5 col-xxl-6 d-xl-block text-center"><img src='static/uploads/{{member.image}}' class="band-member"></div>
                                     <div class="col-lg-8 col-xl-7 col-xxl-6">
                                         <div class="mx-auto text-center text-xl-start">
-                                            <h1 class="display-5 fw-bolder text-white mb-2">{{member.first_name}} {{ member.last_name}} {{member.role}} </h1>
+                                            <h1 class="display-5 fw-bolder text-white mb-2">{{member.first_name}} {{ member.last_name}} : {{member.role}} </h1>
                                             <p class="lead fw-normal text-white-50 mb-4">{{member.bio}}</p>
                                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{member.link}}" target="_blank">Instagram</a>

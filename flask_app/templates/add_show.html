@@ -40,43 +40,71 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ubiquity</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                    <li><a class="dropdown-item" href="/register">Register</a></li>
                                     <li><a class="dropdown-item" href="/login">Admin Login</a></li>
-                                    <li><a class="dropdown-item text-danger" href="/logout">Admin Logout</a></li>
+                                    <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            Header
-            <header class="py-3 bg-transparent">
-                <div class="container px-5 bg-transparent">
-                    <div class="row justify-content-center bg-transparent">
-                        <div class="col-lg-8 col-xxl-6 bg-transparent">
-                            <div class="text-center bg-transparent">
-                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="{{url_for('static', filename='img/logo.avif')}}" alt="..." />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <main class="py-3 bg-transparent mb-5">
-                <div class="container px-5 bg-transparent">
-                    <div class="row justify-content-center bg-transparent">
-                        <div class="col-lg-8 col-xxl-6 bg-transparent">
-                            <div class="text-center bg-transparent">
-                                <h1 class="text-white">Welcome {{user.user_name}},</h1>
-                                <a class="btn btn-primary m-5" href="/add/member">Add New Band Member</a>
-                                <a class="btn btn-danger m-5" href="/edit/band">Edit a Band Member</a>
-                                <a class="btn btn-primary m-5" href="/add/show">Add A Show</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
 
-                            </div>
-                        </div>
+            <div class="limiter">
+                <div class="container-login100Registration">
+                    <div class="wrap-login100">
+
+                        <form  autocomplete="off" class="registration100-form validate-form" action="/add_show/query" method="POST" enctype="multipart/form-data">
+                            <img class="login100-form-logo" src="{{url_for('static', filename='img/logo.avif')}}" alt="IMG">
+                            <span class="login100-form-title">
+                                {% with messages = get_flashed_messages(category_filter = ['register']) %}
+                                {% if messages%}
+                                    {% for message in messages %}
+                                    <p ><strong> <u class="text-white">{{message}}</u></strong></p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                                Add A Show
+                            </span>
+        
+                            <div class="row register-form">
+                                <div class="col-md-12 ">
+                                    <div class="form-group mb-3 wrap-input100 validate-input">
+                                        <input autocomplete="off" type="text" class="form-control registration" placeholder="title *"  name="title" />
+                                        <span class="focus-registration"></span>
+                                    </div>
+                                    <div class="form-group mb-3 wrap-input100 validate-input">
+                                        <input type="date" class="form-control registration" placeholder="Date off Show *"  name="show_date" />
+                                        <span class="focus-registration"></span>
+                                    </div>
+                                    <div class="form-group mb-3 wrap-input100 validate-input">
+                                        <input autocomplete="off" type="text" class="form-control registration" placeholder="Link to Event" name="link" />
+                                        <span class="focus-registration" ></span>
+                                    </div>
+                                    <div class="form-group form-group mb-3 wrap-input100 validate-input">
+                                        <label class="text-white"><strong>Image :</strong></label>
+                                        <input type="file" name="files[]" id="fileInput" class="form-control" multiple >
+                                    </div>
+
+                                </div>
+
+                                    <button class="registration100-form-btn">
+                                        Add Show
+                                    </button>
+                                </div>
+                                <!-- <div class="text-center p-t-12">
+                                    <span class="txt1">
+                                        Forgot
+                                    </span>
+                                    <a class="txt2" href="#">
+                                        Username / Password?
+                                    </a>
+                                </div> -->
+
+                        </form>
                     </div>
                 </div>
-            </main>
+            </div>
 
             <!-- Footer-->
             <footer class="bg-dark py-4 mt-auto">
@@ -96,7 +124,28 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src= " {{url_for('static', filename='js/scripts.js')}}"></script>
+
+
+        <script>
+            $(document).ready(function(){
+             // File type validation
+                $("#fileInput").change(function(){
+                    var fileLength = this.files.length;
+                    var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+                    var i;
+                    for(i = 0; i < fileLength; i++){ 
+                        var file = this.files[i];
+                        var imagefile = file.type;
+                        if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+                            alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+                            $("#fileInput").val('');
+                            return false;
+                        }
+                    }
+                });
+            });
+            </script>
     </body>
 </html>
 

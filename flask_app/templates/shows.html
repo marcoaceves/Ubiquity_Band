@@ -27,7 +27,7 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/band">Band</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Store</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
                             <li class="nav-item"><a class="nav-link" href="/music">Music</a></li>
                             <li class="nav-item"><a class="nav-link" href="faq.html">Contact</a></li>
                             <li class="nav-item dropdown">
@@ -48,61 +48,67 @@
                     </div>
                 </div>
             </nav>
-            Header
+            <!-- Header-->
             <header class="py-3 bg-transparent">
                 <div class="container px-5 bg-transparent">
                     <div class="row justify-content-center bg-transparent">
                         <div class="col-lg-8 col-xxl-6 bg-transparent">
                             <div class="text-center bg-transparent">
-                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="{{url_for('static', filename='img/logo.avif')}}" alt="..." />
+                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="static/img/logo.avif" alt="..." />
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-            <main class="py-3 bg-transparent mb-5">
-                <div class="container px-5 bg-transparent">
-                    <div class="row justify-content-center bg-transparent">
-                        <div class="col-lg-8 col-xxl-6 bg-transparent">
-                            <div class="text-center bg-transparent">
-                                <h1 class="text-white">Welcome {{user.user_name}},</h1>
-                                <a class="btn btn-primary m-5" href="/add/member">Add New Band Member</a>
-                                <a class="btn btn-danger m-5" href="/edit/band">Edit a Band Member</a>
-                                <a class="btn btn-primary m-5" href="/add/show">Add A Show</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
-                                <a class="btn btn-primary m-5" href="/music">Add New Band Member</a>
+            {% for show in shows %}
+                        <header class="bg-dark py-5 mb-5">
+                            <div class="container px-5">
+                                <div class="row gx-5 align-items-center justify-content-center">
+                                    <div class="col-xl-5 col-xxl-6 d-xl-block text-center"><img src='static/uploads/{{show.image}}' class="band-member"></div>
+                                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                                        <div class="mx-auto text-center text-xl-start">
+                                            <h1 class="display-5 fw-bolder text-white mb-2">{{show.title}} </h1>
+                                            <p class="lead fw-normal text-white-50 mb-4">{{show.show_date.strftime('%B %d, %Y')}}</p>
+                                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{show.link}}" target="_blank">Buy Tickets</a>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+                        </header>
+                        {% endfor %}
 
-            <!-- Footer-->
-            <footer class="bg-dark py-4 mt-auto">
-                <div class="container px-5">
-                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                        <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
-                        <div class="col-auto">
-                            <a class="link-light small" href="#!">Privacy</a>
-                            <span class="text-white mx-1">&middot;</span>
-                            <a class="link-light small" href="#!">Terms</a>
-                            <span class="text-white mx-1">&middot;</span>
-                            <a class="link-light small" href="#!">Contact</a>
-                        </div>
+                        <!-- Team members section-->
+                        <section class="py-5  bg-transparent">
+                            <div class="container px-5 my-5">
+                                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-ac8d6511-1751-466b-a169-370af0fa0b41"></div>
+
+                                </div>
+                            </div>
+                        </section>
+
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        
     </body>
 </html>
-
-
-
-
-
-
-
