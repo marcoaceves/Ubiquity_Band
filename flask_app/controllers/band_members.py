@@ -46,6 +46,8 @@ def display_band():
 
 @app.route('/add_member/query', methods=['POST'])
 def query_band_member():
+    if 'user_id' not in session:
+        return redirect('/')
     files = request.files.getlist('files[]')
     print(files)
     pic_name=''
@@ -71,6 +73,10 @@ def query_band_member():
 
 @app.route('/edit_member/query', methods=['POST'])
 def query_edit_member():
+
+    if 'user_id' not in session:
+        return redirect('/')
+
     files = request.files.getlist('files[]')
     for file in files:
         file=secure_filename(file.filename)
@@ -125,6 +131,8 @@ def query_edit_member():
 
 @app.route('/edit/band')
 def edit_band():
+    if 'user_id' not in session:
+        return redirect('/')
     members= Member.get_all_band_members()
     print(members[0].image)
 

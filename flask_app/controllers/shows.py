@@ -41,6 +41,8 @@ def display_shows():
 
 @app.route('/add_show/query', methods=['POST'])
 def query_show():
+    if 'user_id' not in session:
+        return redirect('/')
     files = request.files.getlist('files[]')
     print(files)
     pic_name=''
@@ -65,6 +67,8 @@ def query_show():
 
 @app.route('/edit_show/query', methods=['POST'])
 def query_edit_show():
+    if 'user_id' not in session:
+        return redirect('/')
     files = request.files.getlist('files[]')
     for file in files:
         file=secure_filename(file.filename)
@@ -115,6 +119,8 @@ def query_edit_show():
 
 @app.route('/edit/shows')
 def edit_shows():
+    if 'user_id' not in session:
+        return redirect('/')
     shows= Show.get_all_shows()
     print(shows[0].image)
 

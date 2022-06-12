@@ -19,7 +19,7 @@ def login_html():
 
     return render_template('login.html')
 
-@app.route('/register')
+@app.route('/register/hfjksahfjhsa5064506456/fsa70475fs')
 def register():
     return render_template('register.html')
 
