@@ -13,10 +13,5 @@ from flask_app.models.user import User
 @app.route('/')
 def display_project():
 
-    return render_template('index.html', images=Image.get_all_images())
-
-@app.route('/music')
-def display_music():
-
-    return render_template('music.html', images=Image.get_all_images())
+    return render_template('index.html')
 
