@@ -60,6 +60,19 @@
                     </div>
                 </div>
             </header>
+
+
+            {% for music in music %}
+            <section class="py-5  bg-transparent">
+                <div class="">
+                    <div class="text-center bg-transparent">
+                        <h3 class="text-white">{{music.name}}</h3>
+                        {{music.link | safe}}
+                    </div>
+                </div>
+            </section>
+            {% endfor %}
+
                 <!-- albums/tracks-->
             <section class="py-5  bg-transparent">
                 <div class="">

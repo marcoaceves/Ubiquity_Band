@@ -21,9 +21,6 @@ class Music:
     def get_all_music(cls):
         query = "SELECT * FROM music;"
         results = connectToMySQL(db).query_db(query)
-        # if results == False:
-        #     no_shows =[{"title":"There is no shows!"}]
-        #     return(no_shows)
 
         music = []
         for i in results:
