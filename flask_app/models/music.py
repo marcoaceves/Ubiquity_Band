@@ -19,7 +19,7 @@ class Music:
 
     @classmethod
     def get_all_music(cls):
-        query = "SELECT * FROM music;"
+        query = "SELECT * FROM music ORDER BY id DESC;"
         results = connectToMySQL(db).query_db(query)
 
         music = []
@@ -35,12 +35,12 @@ class Music:
 
     @classmethod
     def get_one_music(cls, data):
-        query = "SELECT * FROM shows WHERE id = %(id)s;"
+        query = "SELECT * FROM music WHERE id = %(id)s;"
         results = connectToMySQL(db).query_db(query, data)
         print(results)
         return cls(results[0])
 
     @classmethod
     def update_music(cls,data):
-        query = "UPDATE shows SET name=%(name)s,  link=%(link)s WHERE id =%(id)s "
+        query = "UPDATE music SET name=%(name)s,  link=%(link)s WHERE id =%(id)s "
         return connectToMySQL(db).query_db(query,data)

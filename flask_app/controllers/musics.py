@@ -37,3 +37,42 @@ def query_music():
     return redirect(request.referrer)
 
 
+@app.route('/edit_music/query', methods=['POST'])
+def query_edit_music():
+    if 'user_id' not in session:
+        return redirect('/')
+
+    data = {
+    'id': request.form['id']
+    }
+
+    data={
+    'id' : request.form['id'],
+    'name' : request.form['name'],
+    'link' : request.form['link'],
+    }
+    Music.update_music(data)
+    return redirect(request.referrer)
+
+
+
+@app.route('/edit/music')
+def edit_music():
+    if 'user_id' not in session:
+        return redirect('/')
+    music= Music.get_all_music()
+
+    return render_template('edit_music.html', music=music)
+
+
+@app.route('/delete/music/<id>')
+def delete_music(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'id': id
+    }
+
+
+    Music.delete_music(data)
+    return redirect(request.referrer)
