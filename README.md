@@ -3,9 +3,8 @@
 
 Link to Website: http://184.169.213.152/
 
-![Screenshot 2022-06-23 225135](https://user-images.githubusercontent.com/85464208/175471294-b77c726c-a06b-4e15-b646-863609681790.png)
 
-
+![Screenshot 2022-06-23 225135](https://user-images.githubusercontent.com/85464208/175761480-9d05ea15-7f25-482b-a3cd-065f8ab9f570.png)
 
 
 
