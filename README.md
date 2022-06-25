@@ -9,7 +9,9 @@ Link to Website: http://184.169.213.152/
 
 
 
-https://user-images.githubusercontent.com/85464208/175761455-bf811335-fd77-46b2-aac4-3b0b1882bc27.mp4
+![2022-06-24 23-25-21 (1)](https://user-images.githubusercontent.com/85464208/175761706-f032a4c5-f438-4896-a08b-ad2f6a0f42ee.gif)
+
+
 
 
 
