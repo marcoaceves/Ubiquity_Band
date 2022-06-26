@@ -18,6 +18,6 @@ Link to Website: http://184.169.213.152/
 
 Website for Ubiquity(Metal Band) from Los Angeles, Ca 
 
-Features CRUD operations that allow the band manager to update members of the band, events, music via embed links. Video Demostration on available Youtube.
+Features CRUD operations that allow the band manager to update members of the band, events, music via embed links. Video Demostration on available Youtube: https://youtu.be/Mt4n3GAOOJs
 
 
