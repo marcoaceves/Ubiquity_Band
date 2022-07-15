@@ -529,7 +529,7 @@ iframe {
   -moz-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-
+ 
 .alert-validate::after {
   content: "\f06a";
   font-family: FontAwesome;

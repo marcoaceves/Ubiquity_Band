@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, jsonify
 import os
 from werkzeug.utils import secure_filename
 import urllib.request
@@ -7,12 +7,33 @@ from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
-
-
+import json
+from email.message import EmailMessage
+import smtplib
 @app.route('/contact')
 def display_contact():
 
     return render_template('contact.html')
+
+@app.route("/a", methods=['POST'])
+def massage():
+    data = request.form
+    print(data)
+    name = request.form['name']
+    contact = request.form['email']
+    message = request.form['message']
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    # Make sure to give app access in your Google account
+    server.login('cosmicmarcobrahma@gmail.com', "pazsmajysencrhcj")
+    email = EmailMessage()
+    email['From'] = 'cosmicmarcobrahma@gmail.com'
+    email['To'] = 'mr.aceves@gmail.com'
+    email['Subject'] = 'Marco Portfolio Contact'
+    email.set_content(f"{name} has a message {message} Please reply at {contact}")
+    server.send_message(email)
+    return jsonify ({'flash': "Thank you for contacting me, I have received your message and will respond soon."})
 
 @app.route('/test')
 def display_():
