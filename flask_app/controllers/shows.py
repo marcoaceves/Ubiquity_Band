@@ -10,7 +10,7 @@ import uuid as uuid
 from flask_app.models.user import User
 from flask_app.models.show import Show
 
-
+from flask_app.models.elements import Element
 
 # image proccessing
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'avif'])
@@ -28,14 +28,14 @@ def add_show_form():
     data={'id':session["user_id"]}
     user=User.get_user(data)
 
-    return render_template('add_show.html', user=user)
+    return render_template('add_show.html', user=user, navbar=Element)
 
 
 
 @app.route('/shows')
 def display_shows():
     shows= Show.get_all_shows()
-    return render_template('shows.html', shows=shows)
+    return render_template('shows.html', shows=shows, navbar=Element)
 
 
 
@@ -124,7 +124,7 @@ def edit_shows():
     shows= Show.get_all_shows()
     print(shows[0].image)
 
-    return render_template('edit_shows.html', shows=shows)
+    return render_template('edit_shows.html', shows=shows, navbar=Element)
 
 @app.route('/delete/show/<id>')
 def delete_show(id):

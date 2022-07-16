@@ -19,35 +19,7 @@
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="/">Ubiquity</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/band">Band</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/music">Music</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                                </ul>
-                            </li> -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ubiquity</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="/login">Admin Login</a></li>
-                                    <li><a class="dropdown-item text-danger" href="/logout">Admin Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            {{navbar | safe}}
             <!-- Page content-->
             <section class="py-5">
                 <div class="container px-5">
@@ -55,36 +27,30 @@
                     <div class="bg-dark rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">Get in touch</h1>
-                            <p class="lead fw-normal text-muted mb-0">***UNDER CONTRUCTION***</p>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
                                 <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
-                                <form id="contactForm" action="#">
-                                    <!-- Name input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..." data-sb-validations="required" />
-                                        <label for="name">Full name</label>
-                                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                                    </div>
-                                    <!-- Email address input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" name="email"/>
-                                        <label for="email">Email address</label>
-                                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                                    </div>
-
-                                    <!-- Message input-->
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" name="message"></textarea>
-                                        <label for="message" >Message</label>
-                                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                                    </div>
-                                    <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" id="form-submit" value="Send message">Submit</button></div>
-                                </form>
+                                <div class="contact-form">
+                                    <form id="contact-form" action="#">
+                                        <!-- Name input-->
+                                        <div class="form mb-3">
+                                            <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..."  />
+                                        </div>
+                                        <!-- Email address input-->
+                                        <div class="form mb-3">
+                                            <input class="form-control" id="email" type="email" placeholder="name@example.com"  name="email"/>
+                                        </div>
+                                        <!-- Message input-->
+                                        <div class="form mb-3">
+                                            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"  name="message"></textarea>
+                                        </div>
+                                        <!-- Submit Button-->
+                                        <div class="d-grid">
+                                            <input  class="btn btn-primary btn-lg" id="submitButton" type="submit" id="form-submit" value="Send message">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -108,19 +74,18 @@
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!-- Main jQuery -->
+        <script src="static/js/jquery-1.11.1.min.js"></script>
+		<!-- Single Page Nav -->
+
+<!-- Contact form validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+        
+       
+                <!-- Bootstrap core JS-->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script type="text/javascript">
 			$(function(){
@@ -128,6 +93,8 @@
 				/*	Contact Form
 				/* ========================================================================= */
 				$('#contact-form').validate({
+                    
+                    
 					rules: {
 						name: {
 							required: true,
@@ -153,6 +120,7 @@
 						message: {
 							required: "Please write something to send this form.",
 							minlength: "Your message must be at least 10 characters"
+                            
 						}
 					},
 					submitHandler: function(form) {

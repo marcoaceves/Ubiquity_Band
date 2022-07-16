@@ -529,7 +529,9 @@ iframe {
   -moz-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
- 
+.error{
+  color: #dc3545;
+}
 .alert-validate::after {
   content: "\f06a";
   font-family: FontAwesome;

@@ -8,7 +8,7 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
-
+from flask_app.models.elements import Element
 bcrypt = Bcrypt(app)
 
 
@@ -17,7 +17,7 @@ def login_html():
     if 'user_id' in session:
         return redirect('/dashboard')
 
-    return render_template('login.html')
+    return render_template('login.html', navbar=Element)
 
 @app.route('/register/hfjksahfjhsa5064506456/fsa70475fs')
 def register():
@@ -59,7 +59,7 @@ def dashboard():
         return redirect('/logout')
     data={'id':session["user_id"]}
     user=User.get_user(data)
-    return render_template('dashboard.html', user=user)
+    return render_template('dashboard.html', user=user, navbar=Element)
 
 @app.route('/logout')
 def logout():

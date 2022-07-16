@@ -9,7 +9,7 @@ from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
 from flask_app.models.band_member import Member
-
+from flask_app.models.elements import Element
 bcrypt = Bcrypt(app)
 
 
@@ -31,7 +31,7 @@ def add_band_member_form():
     data={'id':session["user_id"]}
     user=User.get_user(data)
 
-    return render_template('band_member_form.html', user=user)
+    return render_template('band_member_form.html', user=user, navbar=Element)
 
 
 
@@ -40,7 +40,7 @@ def display_band():
     members= Member.get_all_band_members()
     print(members[0].image)
 
-    return render_template('band.html', members=members)
+    return render_template('band.html', members=members, navbar=Element)
 
 
 
@@ -136,7 +136,7 @@ def edit_band():
     members= Member.get_all_band_members()
     print(members[0].image)
 
-    return render_template('edit_band_member.html', members=members)
+    return render_template('edit_band_member.html', members=members, navbar=Element)
 
 @app.route('/delete/member/<id>')
 def delete_member(id):

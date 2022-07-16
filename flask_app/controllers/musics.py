@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 from flask_app.models.music import Music
 
-
+from flask_app.models.elements import Element
 
 
 
@@ -13,7 +13,7 @@ from flask_app.models.music import Music
 @app.route('/music')
 def display_music():
     music= Music.get_all_music()
-    return render_template('music.html', music=music)
+    return render_template('music.html', music=music, navbar=Element)
 
 @app.route('/add/music')
 def add_music():
@@ -62,7 +62,7 @@ def edit_music():
         return redirect('/')
     music= Music.get_all_music()
 
-    return render_template('edit_music.html', music=music)
+    return render_template('edit_music.html', music=music, navbar=Element)
 
 
 @app.route('/delete/music/<id>')

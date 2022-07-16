@@ -6,7 +6,7 @@ from datetime import datetime
 from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
-
+from flask_app.models.elements import Element
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads' 
 
@@ -18,7 +18,7 @@ def allowed_file(filename):
 @app.route('/',methods=["POST","GET"])
 def images():
 
-    return render_template('index.html', images=Image.get_all_images())
+    return render_template('index.html', images=Image.get_all_images(), navbar=Element)
 
 @app.route("/upload",methods=["POST","GET"])
 def upload():
