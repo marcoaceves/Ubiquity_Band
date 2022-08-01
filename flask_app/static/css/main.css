@@ -497,7 +497,7 @@ iframe {
 .validate-input {
   position: relative;
 }
-
+  
 .alert-validate::before {
   content: attr(data-validate);
   position: absolute;
