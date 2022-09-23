@@ -9,6 +9,7 @@ Element= """<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/band">Band</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/merch">Merch</a></li>
                             <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
                             <li class="nav-item"><a class="nav-link" href="/music">Music</a></li>
                             <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>

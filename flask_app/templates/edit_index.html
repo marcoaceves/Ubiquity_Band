@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ubiquity Band</title>
+        <!-- Favicon-->
+        <link rel="icon" href="{{url_for('static', filename='/img/favicon.ico')}}">
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+
+
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            {{navbar | safe}}
+            <!-- LOGO EDIT FORM-->
+            <form autocomplete="off" action="/edit_logo/query" method="POST" enctype="multipart/form-data">
+                <section class="py-5  bg-black">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <div class="col-xl-5 col-xxl-6 d-xl-block text-center">
+                                <div class="text-center bg-transparent">
+                                    <div class="row justify-content-center bg-transparent">
+                                        <div class="text-center bg-transparent">
+                                            <h1 class="display-5 fw-bolder text-white mb-5 bg-black">Edit Band Logo</h1>
+                                            <img id="css_drop_shadow" class="img-fluid rounded mb-5 mb-lg-0" src="/static/img/ubiquity_logo.png" alt="..." />
+                                            <div class="d-grid gap-3 d-flex ">
+                                                <input type="file" name="files[]" id="fileInput" class="form-control" multiple >
+                                                <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" value="Update" >Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+            <!-- Video 1-->
+            <form autocomplete="off" action="/edit_video1/query" method="POST" enctype="multipart/form-data">
+                <section class="py-5  bg-dark">
+                    <div class="video-container">
+                        <div class="text-center bg-transparent mb-5">
+                            <h1 class="display-5 fw-bolder text-white mb-5 bg-dark">Edit Video 1</h1>
+                            <iframe width="900" height="400" src="https://www.youtube.com/embed/uWm2cDkPB1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="container px-5">
+                        <div class="row gx-3 align-items-center justify-content-center">
+                            <div class="col-xl-5 col-xxl-8 d-xl-block text-center">
+                                <div class="text-center bg-transparent">
+                                    <div class="text-center bg-transparent">
+                                        <div class="d-grid gap-3 d-flex ">
+                                            <label class="text-white mb-3"  for="link">Youtube Embed Link:</label>
+                                            <textarea autocomplete="off" type="text" rows="0" class=" form-control registrationtextarea text-white mb-2 bg-dark"   name="link" >link will go here</textarea>
+                                            <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" value="Update" >Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </section>
+            </form>
+            <!-- Video 2-->
+            <form autocomplete="off" action="/edit_video2/query" method="POST" enctype="multipart/form-data">
+                <section class="py-5  bg-black">
+                    <div class="video-container">
+                        <div class="text-center bg-transparent mb-5">
+                            <h1 class="display-5 fw-bolder text-white mb-5 bg-black">Edit Video 2</h1>
+                            <iframe width="900" height="400" src="https://www.youtube.com/embed/4wzktJze_ME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="container px-5">
+                        <div class="row gx-3 align-items-center justify-content-center">
+                            <div class="col-xl-5 col-xxl-8 d-xl-block text-center">
+                                <div class="text-center bg-transparent">
+                                    <div class="text-center bg-transparent">
+                                        <div class="d-grid gap-3 d-flex ">
+                                            <label class="text-white mb-3"  for="link">Youtube Embed Link:</label>
+                                            <textarea autocomplete="off" type="text" rows="0" class=" form-control registrationtextarea text-white mb-2 bg-black"   name="link" >link will go here</textarea>
+                                            <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" value="Update" >Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </section>
+            </form>
+
+            <!-- Social Media-->
+            <form action="">
+                <section class="py-5  bg-dark">
+                    <h1 class="display-5 fw-bolder text-white mb-5 bg-dark text-center">Edit Social Media Links</h1>
+                    <div class="text-center bg-dark d-flex flex-column align-items-center">
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
+                            <img src="/static/img/media_icons/spotify.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
+                            <img src="/static/img/media_icons/instagram.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
+                            <img src="/static/img/media_icons/apple.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
+                            <img src="/static/img/media_icons/bandcamp.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
+                            <img src="/static/img/media_icons/facebook.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
+                            <img src="/static/img/media_icons/tiktok.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
+                            <img src="/static/img/media_icons/twitter.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
+                            <img src="/static/img/media_icons/youtube.png" alt="" class="social_icons me-5"> 
+                            <input type="text" name="" class="form-control">
+                        </div>
+
+                        <div class=" bg-dark d-flex flex-row-reverse justify-content-end ">
+                            <button class="btn btn-primary btn-lg px-4 me-sm-3 mt-5 ms-5" type="submit" value="Update" >Update</button>
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+                
+            </form>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-black py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+    </body>
+</html>

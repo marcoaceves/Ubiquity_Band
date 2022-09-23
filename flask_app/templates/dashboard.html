@@ -26,7 +26,7 @@
                     <div class="row justify-content-center bg-transparent">
                         <div class="col-lg-8 col-xxl-6 bg-transparent">
                             <div class="text-center bg-transparent">
-                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="{{url_for('static', filename='img/ubiquity_logo.png')}}" alt="..." />
+                                <img class="img-fluid rounded mb-5 mb-lg-0" id="css-drop-shadow" src="static/img/ubiquity_logo.png" alt="..." />
                             </div>
                         </div>
                     </div>
@@ -38,6 +38,7 @@
                         <div class=" ">
                             <h1 class="text-white text-center">Welcome {{user.user_name}},</h1>
                             <div class=" text-center d-grid gap-2 d-md-flex justify-content-md-center">
+                                <a  class="btn btn-primary btn-sm m-2  " href="/edit/index"><i class="bi bi-gear"></i> Edit Main Page</a>
                                 <a  class="btn btn-primary btn-sm m-2  " href="/add/member"><i class="bi bi-person-plus-fill"></i> Add New Band Member</a>
                                 <a class="btn btn-primary btn-sm  m-2" href="/edit/band"> <i class="bi bi-people"></i> Manage Band Members</a>
                                 <a class="btn btn-primary btn-sm m-2" href="/add/show"> <i class="bi bi-calendar-event"></i> Add A Show</a>

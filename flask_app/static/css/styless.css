@@ -4581,7 +4581,7 @@ textarea.form-control-lg {
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
- 
+  
 .card-header-tabs {
   margin-right: -0.5rem;
   margin-bottom: -0.5rem;

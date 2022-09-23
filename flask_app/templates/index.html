@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -15,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
         <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+
 
     </head>
     <body class="d-flex flex-column">
@@ -33,50 +36,67 @@
                     </div>
                 </div>
             </header>
-                        <!-- About section-->
-                        <section class="py-5  bg-transparent">
-                            <div class="video-container">
-                                <div class="text-center bg-transparent">
-                                    <iframe width="900" height="400" src="https://www.youtube.com/embed/uWm2cDkPB1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- About section-->
-                        <section class="py-5  bbg-transparent">
-                            <div class="video-container">
-                                <div class="text-center bbg-transparent">
-                                    <iframe width="900" height="400" src="https://www.youtube.com/embed/4wzktJze_ME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Team members section-->
-                        <section class="py-5  bg-transparent">
-                            <div class="container px-5 my-5">
-                                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                                <div class="elfsight-app-ac8d6511-1751-466b-a169-370af0fa0b41"></div>
 
-                                </div>
-                            </div>
-                        </section>
-
-        <!-- Footer-->
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+            <!-- Video 1-->
+            <section class="py-5  bg-transparent">
+                <div class="video-container">
+                    <div class="text-center bg-transparent">
+                        <iframe width="900" height="400" src="https://www.youtube.com/embed/uWm2cDkPB1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </section>
+            <!-- Video 2-->
+            <section class="py-5  bbg-transparent">
+                <div class="video-container">
+                    <div class="text-center bbg-transparent">
+                        <iframe width="900" height="400" src="https://www.youtube.com/embed/4wzktJze_ME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+            <!-- Social Media-->
+            <section class="py-5  bg-transparent">
+                <div class="video-container">
+                    <div class="text-center bg-transparent">
+                        <img src="static/img/media_icons/spotify.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/apple.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/instagram.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/facebook.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/tiktok.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/bandcamp.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/twitter.png" alt="" class="social_icons">
+                        <img src="static/img/media_icons/youtube.png" alt="" class="social_icons">
+                    </div>
+                </div>
+            </section>
+            <!-- Inta widget-->
+            <section class="py-5  bg-transparent">
+                <div class="container px-5 my-5">
+                    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                    <div class="elfsight-app-ac8d6511-1751-466b-a169-370af0fa0b41"></div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Footer-->
+            <footer class="bg-dark py-4 mt-auto">
+                <div class="container px-5">
+                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                        <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ubiquity 2022</div></div>
+                        <div class="col-auto">
+                            <a class="link-light small" href="#!">Privacy</a>
+                            <span class="text-white mx-1">&middot;</span>
+                            <a class="link-light small" href="#!">Terms</a>
+                            <span class="text-white mx-1">&middot;</span>
+                            <a class="link-light small" href="#!">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{{url_for('static', filename='/js/scripts.js')}}"></script>
     </body>
 </html>

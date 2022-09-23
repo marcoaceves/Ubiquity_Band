@@ -14,4 +14,6 @@ from flask_app.models.elements import Element
 def display_project():
 
     return render_template('index.html', navbar=Element)
-
+@app.route('/edit/index/')
+def edit_index():
+    return render_template('edit_index.html', navbar=Element)
