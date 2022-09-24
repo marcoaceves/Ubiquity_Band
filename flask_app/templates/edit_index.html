@@ -25,7 +25,7 @@
             <!-- Navigation-->
             {{navbar | safe}}
             <!-- LOGO EDIT FORM-->
-            <form autocomplete="off" action="/edit_logo/query" method="POST" enctype="multipart/form-data">
+            <form autocomplete="off" action="/add_logo/query" method="POST" enctype="multipart/form-data">
                 <section class="py-5  bg-black">
                     <div class="container px-5">
                         <div class="row gx-5 align-items-center justify-content-center">
@@ -34,7 +34,7 @@
                                     <div class="row justify-content-center bg-transparent">
                                         <div class="text-center bg-transparent">
                                             <h1 class="display-5 fw-bolder text-white mb-5 bg-black">Edit Band Logo</h1>
-                                            <img id="css_drop_shadow" class="img-fluid rounded mb-5 mb-lg-0" src="/static/img/ubiquity_logo.png" alt="..." />
+                                            <img id="css_drop_shadow" class="img-fluid rounded mb-5 mb-lg-0" src="/static/uploads/{{logo.image}}" alt="..." />
                                             <div class="d-grid gap-3 d-flex ">
                                                 <input type="file" name="files[]" id="fileInput" class="form-control" multiple >
                                                 <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" value="Update" >Update</button>
