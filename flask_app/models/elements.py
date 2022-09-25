@@ -20,13 +20,7 @@ Element= """<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                                     <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
                                 </ul>
                             </li> -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ubiquity</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="/login">Admin Login</a></li>
-                                    <li><a class="dropdown-item text-danger" href="/logout">Admin Logout</a></li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

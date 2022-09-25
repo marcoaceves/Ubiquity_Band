@@ -10,6 +10,8 @@ from flask_app.models.user import User
 from flask_app.models.elements import Element
 
 
+from flask_app.models.logo import logo
+
 
 @app.route('/merch')
 
@@ -17,7 +19,7 @@ def display_merch():
     navbar = Element
 
     return render_template(
-        'merch.html',navbar=navbar,
+        'merch.html',navbar=navbar, logo=logo
     )
 
 

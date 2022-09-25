@@ -17,15 +17,22 @@ class Logo:
     def get_logo(cls):
         query = "SELECT * FROM logo;"
         results = connectToMySQL(db).query_db(query)
-        print(results, '*')
+
         if len(results) < 1:
              no_logo =[] 
              return(no_logo)
 
         logo = results[0]
-        print(logo,'hello')
+
         return logo
     @classmethod
     def delete_logo(cls):
         query = "TRUNCATE TABLE  logo;"
         return connectToMySQL(db).query_db(query)
+# band/brand logo
+logo = Logo.get_logo()
+
+if len(logo)<1:
+    logo={"image":"default_logo.png"}
+
+# ------------------

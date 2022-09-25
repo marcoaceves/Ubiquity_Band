@@ -9,11 +9,16 @@ from flask_app.models.elements import Element
 
 
 
+from flask_app.models.logo import logo
+
+
+
+
 
 @app.route('/music')
 def display_music():
     music= Music.get_all_music()
-    return render_template('music.html', music=music, navbar=Element)
+    return render_template('music.html', music=music, navbar=Element, logo=logo)
 
 @app.route('/add/music')
 def add_music():

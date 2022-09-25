@@ -40,12 +40,12 @@ def query_logo():
             os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], image))
         except Exception:
             pass
-    print('continue')
+
     files = request.files.getlist('files[]')
     print(files)
     pic_name=''
     for file in files:
-        print("hello")
+
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             pic_name = str(uuid.uuid1()) + "_" + filename
@@ -54,7 +54,7 @@ def query_logo():
     data={
         'image' : pic_name,
     }
-    print("hello")
+
     Logo.add_logo(data)
     return redirect(request.referrer)
 

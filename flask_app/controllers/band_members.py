@@ -9,7 +9,10 @@ from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
 from flask_app.models.band_member import Member
-from flask_app.models.elements import Element
+from flask_app.models.elements import Element 
+
+from flask_app.models.logo import Logo
+
 bcrypt = Bcrypt(app)
 
 
@@ -22,6 +25,15 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1080 * 1554
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 # -----------------------------------------------------------------
+
+# band/brand log
+logo = Logo.get_logo()
+
+if len(logo)<1:
+    logo={"image":"default_logo.png"}
+    print(logo,'y')
+print(logo, '#')
+# ------------------
 
 
 @app.route('/add/member')
@@ -40,7 +52,7 @@ def display_band():
     members= Member.get_all_band_members()
     print(members[0].image)
 
-    return render_template('band.html', members=members, navbar=Element)
+    return render_template('band.html', members=members, navbar=Element, logo=logo)
 
 
 
