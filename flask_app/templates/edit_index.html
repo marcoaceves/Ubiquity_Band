@@ -103,42 +103,19 @@
             </form>
 
             <!-- Social Media-->
-            <form action="">
+            <form action="/edit/social_media" method="POST">
                 <section class="py-5  bg-dark">
                     <h1 class="display-5 fw-bolder text-white mb-5 bg-dark text-center">Edit Social Media Links</h1>
                     <div class="text-center bg-dark d-flex flex-column align-items-center">
+                        {% for media in links %}
                         <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
-                            <img src="/static/img/media_icons/spotify.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
+                            <img src="/static/img/media_icons/{{media.name + '.png'}}" alt="" class="social_icons me-5"> 
+                            <input type="text" name="link" class="form-control" value="{{media.link}}">
+                            <input type="hidden" name="id" id="" value="{{media.id}}">
+                            <input type="hidden" name="name" id="" value="{{media.name}}">
                         </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
-                            <img src="/static/img/media_icons/instagram.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
-                            <img src="/static/img/media_icons/apple.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
-                            <img src="/static/img/media_icons/bandcamp.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
-                            <img src="/static/img/media_icons/facebook.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
-                            <img src="/static/img/media_icons/tiktok.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group mb-3">
-                            <img src="/static/img/media_icons/twitter.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
-                        <div class="text-center bg-dark d-flex flex-row align-items-center form-group">
-                            <img src="/static/img/media_icons/youtube.png" alt="" class="social_icons me-5"> 
-                            <input type="text" name="" class="form-control">
-                        </div>
+                        {% endfor %}
+                        
 
                         <div class=" bg-dark d-flex flex-row-reverse justify-content-end ">
                             <button class="btn btn-primary btn-lg px-4 me-sm-3 mt-5 ms-5" type="submit" value="Update" >Update</button>

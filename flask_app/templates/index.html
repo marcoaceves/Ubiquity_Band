@@ -57,14 +57,10 @@
             <section class="py-5  bg-transparent">
                 <div class="video-container">
                     <div class="text-center bg-transparent">
-                        <img src="static/img/media_icons/spotify.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/apple.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/instagram.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/facebook.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/tiktok.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/bandcamp.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/twitter.png" alt="" class="social_icons">
-                        <img src="static/img/media_icons/youtube.png" alt="" class="social_icons">
+                        {% for media in links %}
+                        <a href="{{media.link}}" target="_blank"><img src="static/img/media_icons/{{media.name+'.png'}}" alt="" class="social_icons"></a>
+
+                        {% endfor %}
                     </div>
                 </div>
             </section>
