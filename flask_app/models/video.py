@@ -25,8 +25,8 @@ class Videos:
         results = connectToMySQL(db).query_db(query)
         print(results, '*')
         if len(results) < 1:
-             no_logo =[] 
-             return(no_logo)
+             
+             return(None)
 
         videos = results[0]
         print(videos,'hello')

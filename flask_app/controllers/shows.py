@@ -3,7 +3,6 @@ import os
 from werkzeug.utils import secure_filename
 import urllib.request
 from datetime import datetime
-from flask_app.models.image import Image
 from flask_bcrypt import Bcrypt
 from flask_app import app
 import uuid as uuid
@@ -11,7 +10,7 @@ from flask_app.models.user import User
 from flask_app.models.show import Show
 
 from flask_app.models.elements import Element
-from flask_app.models.logo import logo
+from flask_app.models.logo import Logo
 # image proccessing
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'avif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads'
@@ -35,6 +34,7 @@ def add_show_form():
 @app.route('/shows')
 def display_shows():
     shows= Show.get_all_shows()
+    logo = Logo.get_logo()
     return render_template('shows.html', shows=shows, navbar=Element, logo=logo)
 
 

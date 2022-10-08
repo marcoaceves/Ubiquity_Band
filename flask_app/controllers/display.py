@@ -4,7 +4,6 @@ import os
 from werkzeug.utils import secure_filename
 import urllib.request
 from datetime import datetime
-from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
@@ -12,7 +11,6 @@ from flask_app.models.elements import Element
 from flask_app.models.logo import Logo
 from flask_app.models.video import Videos
 
-from flask_app.models.logo import logo
 from flask_app.models.social_media import Social_media 
 
 @app.route('/')
@@ -22,26 +20,39 @@ def display_project():
     if len(logo)<1:
         logo={"image":"default_logo.png"}
     links=Social_media.get_links()
+    if Videos.get_videos()!= None:
+        video_one=Videos.get_videos()['video_one']
+        video_two=Videos.get_videos()['video_two']
+    else:
+        video_one="Please add a video"
+        video_two="Please add a video"
     
 
-    return render_template('index.html', navbar=Element, logo=logo, links=links)
+    return render_template('index.html', navbar=Element, logo=logo, video_one=video_one, video_two=video_two,links=links)
 
 @app.route('/edit/index/')
 def edit_index():
-    video_one=Videos.get_videos()['video_one']
-    video_two=Videos.get_videos()['video_two']
+    logo = Logo.get_logo()
+    if Videos.get_videos()!= None:
+        video_one=Videos.get_videos()['video_one']
+        video_two=Videos.get_videos()['video_two']
+    else:
+        video_one="Please add a video"
+        video_two="Please add a video"
     links=Social_media.get_links()
     return render_template('edit_index.html', navbar=Element, logo=logo, video_one=video_one, video_two=video_two, links=links)
     
 @app.route('/edit_video1/query', methods=['POST'])
 def edit_video_one():
-
-    video_two= Videos.get_videos()
+    if Videos.get_videos()!= None:
+        video_two= Videos.get_videos()["video_two"]
+    else:
+        video_two="Please add a video"
     print('Videos', video_two)
 
     data={
         'video_one' : request.form['video_one'],
-        'video_two' : video_two["video_two"]
+        'video_two' : video_two
         
     }
     Videos.delete_videos()
@@ -51,12 +62,14 @@ def edit_video_one():
 
 @app.route('/edit_video2/query', methods=['POST'])
 def edit_video_two():
-
-    video_two= Videos.get_videos()
-    print('Videos', video_two)
+    if Videos.get_videos()!= None:
+        video_one= Videos.get_videos()["video_one"]
+    else:
+        video_one="Please add a video"  
+    print('Videos', video_one)
 
     data={
-        'video_one' : video_two["video_one"],
+        'video_one' : video_one,
         'video_two' : request.form['video_two']
         
     }

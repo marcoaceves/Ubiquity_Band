@@ -29,10 +29,3 @@ class Logo:
     def delete_logo(cls):
         query = "TRUNCATE TABLE  logo;"
         return connectToMySQL(db).query_db(query)
-# band/brand logo
-logo = Logo.get_logo()
-
-if len(logo)<1:
-    logo={"image":"default_logo.png"}
-
-# ------------------

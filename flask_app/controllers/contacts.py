@@ -3,7 +3,6 @@ import os
 from werkzeug.utils import secure_filename
 import urllib.request
 from datetime import datetime
-from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User

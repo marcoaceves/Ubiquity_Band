@@ -3,7 +3,6 @@ import os
 from werkzeug.utils import secure_filename
 import urllib.request
 from datetime import datetime
-from flask_app.models.image import Image
 from flask_bcrypt import Bcrypt
 from flask_app import app
 import uuid as uuid
@@ -49,6 +48,7 @@ def add_band_member_form():
 
 @app.route('/band')
 def display_band():
+    logo = Logo.get_logo()
     members= Member.get_all_band_members()
     print(members[0].image)
 
