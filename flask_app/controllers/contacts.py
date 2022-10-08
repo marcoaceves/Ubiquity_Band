@@ -26,10 +26,10 @@ def massage():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     # Make sure to give app access in your Google account
-    server.login('cosmicmarcobrahma@gmail.com', "pazsmajysencrhcj")
+    server.login('ubiquityofficialwebsite@gmail.com', "")
     email = EmailMessage()
-    email['From'] = 'cosmicmarcobrahma@gmail.com'
-    email['To'] = 'ubiquityofficial.com'
+    email['From'] = 'ubiquityofficialwebsite@gmail.com'
+    email['To'] = 'ubiquityofficial@gmail.com'
     email['Subject'] = 'Ubiquity Official Website'
     email.set_content(f"{name} wants to get in touch. Message: {message}. Please reply at {contact}")
     server.send_message(email)
