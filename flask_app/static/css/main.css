@@ -585,4 +585,26 @@ input,textarea{width:100%;display:block}
   margin: 5px;
 }
 
- 
+
+.waviy {
+  position: relative;
+}
+.waviy span {
+  font-style: italic;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 4s infinite;
+  animation-delay: calc(.2s * var(--i));
+  text-shadow: rgba(31, 115, 199, 0.961) 1px 0 10px;
+  filter: drop-shadow(0.35rem 0.35rem 0.8rem rgba(31, 115, 199, 0.961));
+  
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
